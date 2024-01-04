@@ -1,0 +1,15 @@
+{
+  "name": "html--personal-site",
+  "version": "1.0.0",
+  "description": "personal website",
+  "default": "./templates/main.html",
+  "scripts": {
+    "start": "parcel ./templates/main.html",
+    "build": "parcel build ./templates/main.html --dist-dir ./dist"
+  },
+  "author": "Guy Newman",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  }
+}
