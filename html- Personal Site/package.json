@@ -5,7 +5,7 @@
   "default": "./templates/main.html",
   "scripts": {
     "start": "parcel ./templates/main.html",
-    "build": "parcel build ./templates/main.html --dist-dir ./dist"
+    "build": "parcel build ./templates/main.html"
   },
   "author": "Guy Newman",
   "license": "ISC",
