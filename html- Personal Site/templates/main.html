@@ -12,8 +12,43 @@
       rel="stylesheet"
     />
     <script defer src="../static/js/sliderView.js"></script>
+    <script defer src="../static/js/popUp.js"></script>
   </head>
   <body>
+    <div
+      class="modal cerificate-modal overflow-auto"
+      id="certificate-modal"
+      style="color: black"
+    >
+      <div class="modal-header">
+        <div class="title">Certificate</div>
+        <button data-close-button class="close-button">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <a
+          class="cotainer"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="certificate-container"
+          href=""
+          ><img
+            class="hide cerificate-img"
+            id="python-certificate"
+            src="../static/Images_main/python_certificate.jpg"
+            alt="python cerificate"
+          />
+          <img
+            class="hide cerificate-img"
+            id="javascript-certificate"
+            src="../static/Images_main/javascript_certificate.jpg"
+            alt="javascript cerificate"
+          />
+        </a>
+      </div>
+    </div>
+    <div id="overlay"></div>
+
     <div class="top-div">
       <div class="front">
         <img
@@ -70,7 +105,7 @@
           5 study units in Gmara (גמרא), Tora (תנ"ך). <br />
           I have a 96 grade average (48 units total). <br />
           I have a 665 score in my psychometric. <br />
-          I speak English, Hebrew - Native.
+          I speak fluent English and Hebrew.
         </p>
       </div>
       <div class="skill-row">
@@ -92,10 +127,10 @@
           >
           +
           <a
-            class="middel-anchor"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.udemy.com/certificate/UC-f251fbcc-09eb-4e49-92a0-f1bbce8f9db2/"
+            class="middel-anchor certificate"
+            href=""
+            data-id="#python-certificate"
+            data-url="https://www.udemy.com/certificate/UC-f251fbcc-09eb-4e49-92a0-f1bbce8f9db2/"
             >cerificate</a
           >,
           <a
@@ -130,10 +165,10 @@
           >
           +
           <a
-            class="middel-anchor"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.udemy.com/certificate/UC-96c69588-0052-4d53-890e-e3f31bacf561/"
+            class="middel-anchor certificate"
+            href=""
+            data-id="#javascript-certificate"
+            data-url="https://www.udemy.com/certificate/UC-96c69588-0052-4d53-890e-e3f31bacf561/"
             >cerificate</a
           >
           ,
@@ -309,8 +344,8 @@
               <h5 class="testimonial__header">
                 Building a Drone
                 <img
-                  src="../static/Images_main/drone."
-                  alt="tank robot"
+                  src="../static/Images_main/drone.jpg"
+                  alt="drone"
                   class="testimonial__photo"
                 />
               </h5>

@@ -5,41 +5,33 @@
 const closeModalButtons = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
 const mast = document.querySelector(".masthead");
+const certificateOpen = document.querySelectorAll(".certificate");
+const modal = document.querySelector("#certificate-modal");
 
 const openModal = function (modal, content, url) {
   const modalsOpen = document.querySelectorAll(".modal.active");
-  document.querySelector("#chat-btn")?.classList.add("hidden");
   modalsOpen.forEach((modalOpened) => closeModal(modalOpened));
 
   if (modal == null) return;
+  checkSize(modal);
   const modalBody = modal.querySelector(".modal-body");
 
-  if (content) modalBody.innerHTML = content;
-  if (url) modalBody.querySelector("a").href = url;
+  modalBody.querySelector("#certificate-container").href = url;
+  const image = modalBody.querySelector(content);
 
+  image.classList.remove("hide");
   modal.classList.add("active");
   overlay.classList.add("active");
-  document.querySelector(".main-content")?.classList.add("hide");
-  mast?.classList.add("opaque");
 };
 
 const closeModal = function (modal) {
   if (modal == null) return;
   modal.classList.remove("active");
   overlay.classList.remove("active");
-  document.querySelector(".main-content")?.classList.remove("hide");
-  mast?.classList.remove("opaque");
-  document.querySelector("#chat-btn")?.classList.remove("hidden");
+  modal.querySelectorAll("img").forEach((img) => img.classList.add("hide"));
 };
 
 overlay.addEventListener("click", () => {
-  const modals = document.querySelectorAll(".modal.active");
-  modals.forEach((modal) => {
-    closeModal(modal);
-  });
-});
-
-frontImage?.addEventListener("click", () => {
   const modals = document.querySelectorAll(".modal.active");
   modals.forEach((modal) => {
     closeModal(modal);
@@ -52,3 +44,24 @@ closeModalButtons.forEach((button) => {
     closeModal(modal);
   });
 });
+
+const openCertificate = function (e) {
+  e.preventDefault();
+  const img = this.dataset.id;
+  const modal = document.querySelector("#certificate-modal");
+  openModal(modal, img, this.dataset.url);
+};
+
+certificateOpen.forEach((button) => {
+  button.addEventListener("click", openCertificate);
+});
+
+const checkSize = function () {
+  if (window.innerWidth < 600 || window.innerHeight < 400) {
+    modal.classList.add("full-screen");
+  } else {
+    modal.classList.remove("full-screen");
+  }
+};
+
+window.addEventListener("resize", checkSize);
