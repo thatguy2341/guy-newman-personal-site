@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+import os
 import requests
 
 app = Flask(__name__)
@@ -8,6 +9,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 app.app_context().push()
+
+project_pass = os.getenv("pass")
 
 # basic_url = "https://sheets.googleapis.com"
 # spreadsheet_id = "1vHpTCAm_6WqTEFpMaqZ9UKSbKwz2MDEQ-ZkS8M2gmMo"
@@ -30,7 +33,6 @@ db.create_all()
 @app.route('/<int:us_id>')
 def home(us_id):
     # project_id = 1234
-    # project_pass = 1234
     # doc_num = us_id
     # doc_type = 1
     # req = requests.get(url=f"https://secure.cardcom.solutions/Interface/InvoiceGetHtml.aspx?UserName={project_id}"
