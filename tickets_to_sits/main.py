@@ -17,10 +17,6 @@ app.app_context().push()
 
 project_pass = os.getenv("pass")
 
-# basic_url = "https://sheets.googleapis.com"
-# spreadsheet_id = "1vHpTCAm_6WqTEFpMaqZ9UKSbKwz2MDEQ-ZkS8M2gmMo"
-# req = requests.get(url=f"{basic_url}/v4/spreadsheets/{spreadsheet_id}")
-
 
 class Users(db.Model):
     p_k = db.Column(db.Integer, primary_key=True)
