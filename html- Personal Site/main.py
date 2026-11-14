@@ -1,15 +1,14 @@
-from flask import Flask, render_template
-from datetime import datetime
+# The site is now fully static (see ./public). Render serves it as a Static Site,
+# which never sleeps. This Flask app is kept only as a fallback for the old web service.
+from flask import Flask, send_from_directory
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="public", static_url_path="")
 
-@app.context_processor
-def get_year():
-    return dict(age=(datetime.now() - datetime(year=2005, month=8, day=10)).days // 360)
 
-@app.route('/')
-def hello_world():
-    return render_template('main.html')
+@app.route("/")
+def index():
+    return send_from_directory(app.static_folder, "index.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
