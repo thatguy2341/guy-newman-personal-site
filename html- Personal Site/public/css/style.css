@@ -595,10 +595,11 @@ svg.fill {
 
 .hero__avatar {
   position: absolute;
+  z-index: 3;
   bottom: 6px;
   right: 6px;
-  width: 112px;
-  height: 112px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--bg);
